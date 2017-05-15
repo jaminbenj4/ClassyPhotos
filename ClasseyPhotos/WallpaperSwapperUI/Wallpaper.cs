@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using Microsoft.Win32;
 
-namespace ClassyPhotos
+namespace WallpaperSwapperUI
 {
     public static class Wallpaper
     {
+
+        public static class KeyNames
+        {
+            public const string WallpaperParentKey = @"Control Panel\Desktop";
+            public const string WallpaperPath = @"Wallpaper";
+            public const string WallpaperStyle = @"WallpaperStyle";
+            public const string TileWallpaper = @"TileWallpaper";
+
+        }
         public enum Style
         {
             Fill,
@@ -23,7 +31,7 @@ namespace ClassyPhotos
             Image img = null;
             try
             {
-                img = Image.FromFile(Path.GetFullPath(wallFilePath));
+                img = Image.FromFile(Path.GetFullPath(wallFilePath));         
             }
             catch (Exception e1)
             {
@@ -36,14 +44,15 @@ namespace ClassyPhotos
         public static bool PaintWall(Image image, Style style)
         {
             var primaryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var destWallFilePath = Path.Combine(primaryFolder + @"\Microsoft\Windows\Themes", "rollerWallpaper.bmp");
+            string destWallFilePath = Path.Combine(primaryFolder + @"\Microsoft\Windows\Themes", "rollerWallpaper.bmp");
 
+            Image img = null;
             Bitmap imgTemp = null;
             try
             {
-                var img = image;
+                img = image;
                 imgTemp = new Bitmap(img);
-                imgTemp.Save(destWallFilePath, ImageFormat.Bmp);
+                imgTemp.Save(destWallFilePath, System.Drawing.Imaging.ImageFormat.Bmp);
                 Console.WriteLine("Wallpaper saved to primary path: " + destWallFilePath);
             }
             catch (Exception e1)
@@ -53,7 +62,7 @@ namespace ClassyPhotos
                 {
                     var secondaryFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
                     destWallFilePath = Path.Combine(secondaryFolder, "rollerWallpaper.bmp");
-                    imgTemp.Save(destWallFilePath, ImageFormat.Bmp);
+                    imgTemp.Save(destWallFilePath, System.Drawing.Imaging.ImageFormat.Bmp);
                     Console.WriteLine("Wallpaper saved to secondary path: " + destWallFilePath);
                 }
                 catch (Exception e2)
@@ -65,7 +74,7 @@ namespace ClassyPhotos
 
             try
             {
-                var key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
 
                 if (style == Style.Fill)
                 {
@@ -109,6 +118,11 @@ namespace ClassyPhotos
             }
         }
 
+        public static void GetWall()
+        {
+            RegistryKey UserWallpaper = Registry.CurrentUser.OpenSubKey(KeyNames.WallpaperParentKey, false);
+            var breakpoint = 0;
+        }
         public static RegKey GetWallKeys()
         {
             var key = new RegKey("Wallpaper");
@@ -128,14 +142,6 @@ namespace ClassyPhotos
             }
 
             return key;
-        }
-
-        public static class KeyNames
-        {
-            public const string WallpaperParentKey = @"Control Panel\Desktop";
-            public const string WallpaperPath = @"Wallpaper";
-            public const string WallpaperStyle = @"WallpaperStyle";
-            public const string TileWallpaper = @"TileWallpaper";
         }
     }
 }

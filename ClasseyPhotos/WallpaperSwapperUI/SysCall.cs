@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace ClassyPhotos
+namespace WallpaperSwapperUI
 {
-    internal static class SysCall
+    public class SysCall
     {
+        const int SPI_SETDESKWALLPAPER = 20;
+        const int SPIF_UPDATEINIFILE = 0x01;
+        const int SPIF_SENDWININICHANGE = 0x02;
+
         public enum ProcessDpiAwareness
         {
             ProcessDpiUnaware = 0,
             ProcessSystemDpiAware = 1,
             ProcessPerMonitorDpiAware = 2
         }
-
-        private const int SPI_SETDESKWALLPAPER = 20;
-        private const int SPIF_UPDATEINIFILE = 0x01;
-        private const int SPIF_SENDWININICHANGE = 0x02;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
@@ -27,9 +27,7 @@ namespace ClassyPhotos
             try
             {
                 if (Environment.OSVersion.Version.Major < 6)
-                {
                     return false;
-                }
                 SetProcessDpiAwareness(ProcessDpiAwareness.ProcessPerMonitorDpiAware);
                 return true;
             }

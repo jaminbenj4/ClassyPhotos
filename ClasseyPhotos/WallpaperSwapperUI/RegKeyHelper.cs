@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Win32;
 
-namespace ClassyPhotos
+namespace WallpaperSwapperUI
 {
     public static class RegKeyHelper
     {
-        public const string WallpaperKeyPath = @"Control Panel\Desktop";
-
+        public const string WallpaperKeyPath = "Control Panel\\Desktop";
         public static List<RegKey> GetSubkeysValue(string path, RegistryHive hive)
         {
             var result = new List<RegKey>();
