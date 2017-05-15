@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Timers;
 using System.Threading.Tasks;
+using Microsoft.Win32;
 using Microsoft.Win32.SafeHandles;
 
 namespace ClassyPhotos
@@ -16,6 +18,8 @@ namespace ClassyPhotos
         //private DateTime _lastRun = DateTime.Now.AddMinutes()
         SafeHandle handle = new SafeFileHandle(IntPtr.Zero, true);
         private bool disposed = false;
+        private RegKey _backupWallKey;
+
 
         public ClassyPhotosStart()
         {
@@ -83,6 +87,43 @@ namespace ClassyPhotos
             }
             _timer.Dispose();
             _timer = null;
+        }
+
+        private void BackupWallpaper()
+        {
+            _backupWallKey = Wallpaper.GetWallKeys();
+        }
+
+        private void SetWallpaper()
+        {
+            BackupWallpaper();
+            Image image = Properties.Resources.lolFace;
+            Wallpaper.PaintWall(image, Wallpaper.Style.Center);
+        }
+
+        private void RestoreWallpaper()
+        {
+            try
+            {
+                using (var key = Registry.CurrentUser.OpenSubKey(RegKeyHelper.WallpaperKeyPath, true))
+                {
+                    if (key == null)
+                    {
+                        return;
+                    }
+
+                    //restore reg keys for style and tiling
+                    key.SetValue(Wallpaper.KeyNames.WallpaperStyle, _backupWallKey.Values[Wallpaper.KeyNames.WallpaperStyle]);
+                    key.SetValue(Wallpaper.KeyNames.TileWallpaper, _backupWallKey.Values[Wallpaper.KeyNames.TileWallpaper]);
+
+                    //restore wallapaper image
+                    SysCall.SetSystemWallpaper(_backupWallKey.Values[Wallpaper.KeyNames.WallpaperPath]);
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 }
