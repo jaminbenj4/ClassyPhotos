@@ -1,1 +1,8 @@
 D:\Benjamin_Jones\beibs\ClasseyPhotos\ClasseyPhotos\bin\Debug\ClassyPhotos.exe.config
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\obj\Debug\ClassyPhotos.Properties.Resources.resources
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\obj\Debug\ClassyPhotos.csproj.GenerateResource.Cache
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\bin\Debug\ClassyPhotos.exe.config
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\bin\Debug\ClassyPhotos.exe
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\bin\Debug\ClassyPhotos.pdb
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\obj\Debug\ClassyPhotos.exe
+D:\DEV\ClassyPhotos\ClasseyPhotos\ClasseyPhotos\obj\Debug\ClassyPhotos.pdb
