@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.Win32;
 using Microsoft.Win32.SafeHandles;
 using WallpaperSwapperUI;
-using static WallpaperSwapperUI.SysCall;
+using static ClassyPhotos.SysCall;
 
 namespace ClassyPhotos
 {

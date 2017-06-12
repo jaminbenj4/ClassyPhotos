@@ -4,16 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="180" Width="240">
     <Grid>
-        <TextBox x:Name="FileNameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="PickFileButton" Content="Pick File" HorizontalAlignment="Left" Margin="135,11,0,0" VerticalAlignment="Top" Click="PickFileButton_Click"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="76,152,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="EncodeButton" Content="Encode" HorizontalAlignment="Left" Margin="277,11,0,0" VerticalAlignment="Top" Click="EncodeButton_Click"/>
-        <Button x:Name="SetWallpaperButton" Content="Set Wallpaper" HorizontalAlignment="Left" Margin="39,252,0,0" VerticalAlignment="Top" Click="SetWallpaperButton_Click" RenderTransformOrigin="-0.316,0.705"/>
-        <TextBox x:Name="Base64StringTextBox" HorizontalAlignment="Left" Height="135" Margin="10,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="498"/>
-        <Button x:Name="GetWallpaperButton" Content="Get Wallpaper" HorizontalAlignment="Left" Margin="154,252,0,0" VerticalAlignment="Top" Click="GetWallpaperButton_Click"/>
-        <Button x:Name="RestoreButton" Content="Restore" HorizontalAlignment="Left" Margin="330,252,0,0" VerticalAlignment="Top" Width="75" Click="RestoreButton_Click"/>
+        <Button x:Name="SetWallpaperButton" Content="Set Wallpaper" HorizontalAlignment="Center" Margin="0,35,100,0" VerticalAlignment="Top" Click="SetWallpaperButton_Click" RenderTransformOrigin="-0.316,0.705" Padding="5,1"/>
+        <Button x:Name="RestoreButton" Content="Restore" HorizontalAlignment="Center" Margin="100,35,0,0" VerticalAlignment="Top" Click="RestoreButton_Click" Padding="5,1" Width="75"/>
+        <Button x:Name="RunSwapperButton" Content="Run Swapper" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Padding="5,1" Click="RunSwapperButton_Click"/>
 
     </Grid>
 </Window>

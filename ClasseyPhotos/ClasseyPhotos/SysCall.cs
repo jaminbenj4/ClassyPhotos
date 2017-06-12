@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace WallpaperSwapperUI
+namespace ClassyPhotos
 {
     public class SysCall
     {

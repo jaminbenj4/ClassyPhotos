@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WallpaperSwapperUI
+namespace ClassyPhotos
 {
 
     public class RegKey
