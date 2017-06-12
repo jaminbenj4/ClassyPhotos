@@ -74,6 +74,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RegKey.cs" />
+    <Compile Include="RegKeyHelper.cs" />
+    <Compile Include="SysCall.cs" />
+    <Compile Include="Wallpaper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

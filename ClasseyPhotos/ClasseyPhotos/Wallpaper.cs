@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using Microsoft.Win32;
 
-namespace WallpaperSwapperUI
+namespace ClassyPhotos
 {
     public static class Wallpaper
     {
