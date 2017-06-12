@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Win32;
 
-namespace WallpaperSwapperUI
+namespace ClassyPhotos
 {
     public static class RegKeyHelper
     {

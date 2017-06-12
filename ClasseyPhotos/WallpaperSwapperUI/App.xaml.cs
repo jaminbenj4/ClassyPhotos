@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace WallpaperSwapperUI
+﻿namespace WallpaperSwapperUI
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
     }
 }
