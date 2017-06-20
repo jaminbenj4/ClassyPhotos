@@ -106,9 +106,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\daveeeeen face.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WallpaperTools\WallpaperTools.csproj">
       <Project>{98e03c86-0003-4253-8650-4c665846bee1}</Project>
       <Name>WallpaperTools</Name>

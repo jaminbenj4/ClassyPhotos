@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Timers;
 using Microsoft.Win32;
@@ -9,16 +10,18 @@ namespace WallpaperTools
 {
     public class Swapper
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         private readonly int _classyMaxDuration;
         private readonly int _classyMinDuration;
+        private readonly List<Image> _images;
         private readonly int _normalMaxDuration;
         private readonly int _normalMinDuration;
         private readonly Random _rng;
         private readonly Timer _timer;
         private RegKey _backupWallKey;
         private bool _desktopIsClassy;
+        private int _prevImageIndex;
 
         /// <summary>
         ///     Swaps desktop wallpaper at random intervals
@@ -37,20 +40,31 @@ namespace WallpaperTools
             _desktopIsClassy = false;
             _rng = new Random();
 
-            logger.Debug("Swapper init");
+            //add the images you want from the resx here
+            _images = new List<Image>
+            {
+                Resources.bieber01,
+                Resources.bieber02,
+                Resources.hoff01,
+                Resources.hoff02,
+                Resources.unicorn01
+            };
+            _prevImageIndex = -1;
+
+            Logger.Debug("Swapper init");
         }
 
         public void Start()
         {
-            logger.Debug("Swapper.Start() entered");
+            Logger.Debug("Swapper.Start() entered");
 
             _timer.Interval = NormalRandomInterval();
             _timer.Elapsed += TimerElapsed;
-            logger.Debug("swapper timer event setup");
+            Logger.Debug("swapper timer event setup");
             _timer.Start();
-            logger.Debug("swapper timer started");
+            Logger.Debug("swapper timer started");
 
-            logger.Debug("swapper started");
+            Logger.Debug("swapper started");
         }
 
         /// <summary>
@@ -64,7 +78,7 @@ namespace WallpaperTools
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            logger.Debug("timer ellapsed");
+            Logger.Debug("timer ellapsed");
 
             _timer.Stop();
 
@@ -83,13 +97,19 @@ namespace WallpaperTools
             _desktopIsClassy = !_desktopIsClassy;
             _timer.Start();
 
-            logger.Debug("timer started");
+            Logger.Debug("timer started");
         }
 
         public void Swap()
         {
-            //TODO: make random image selection
-            Image image = Resources.lolFace;
+            var randomIndex = _rng.Next(0, _images.Count);
+            //don't repeat images
+            while (randomIndex == _prevImageIndex)
+            {
+                randomIndex = _rng.Next(0, _images.Count);
+            }
+            var image = _images[randomIndex];
+            _prevImageIndex = randomIndex;
             Set(image);
         }
 
@@ -99,7 +119,7 @@ namespace WallpaperTools
         private void Backup()
         {
             _backupWallKey = Wallpaper.GetWallKeys();
-            logger.Info("wallpaper backup successful");
+            Logger.Info("wallpaper backup successful");
         }
 
         /// <summary>
@@ -138,10 +158,10 @@ namespace WallpaperTools
             }
             catch (Exception exception)
             {
-                logger.Error(exception);
+                Logger.Error(exception);
             }
 
-            logger.Info("wallpaper restored");
+            Logger.Info("wallpaper restored");
         }
 
         private int ClassyRandomInterval()
