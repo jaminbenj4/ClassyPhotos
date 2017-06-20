@@ -18,23 +18,24 @@ namespace WallpaperSwapperUI
         {
             InitializeComponent();
             _swapper = new Swapper(NormalMinDuration, NormalMaxDuration, ClassyMinDuration, ClassyMaxDuration);
+            _swapper.Start();
         }
 
 
         private void SetWallpaperButton_Click(object sender, RoutedEventArgs e)
         {
-            _swapper.Swap();
+            //_swapper.Swap();
         }
 
 
         private void RestoreButton_Click(object sender, RoutedEventArgs e)
         {
-            _swapper.Restore();
+            //_swapper.Restore();
         }
 
         private void RunSwapperButton_Click(object sender, RoutedEventArgs e)
         {
-            _swapper.Start();
+            //_swapper.Start();
         }
     }
 }
