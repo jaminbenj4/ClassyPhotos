@@ -397,7 +397,7 @@
             {
             "Name" = "8:Admin User"
             "Condition" = "8:AdminUser"
-            "Message" = "8:Please re-install as admin"
+            "Message" = "8:Please re-install as admin. Use exe instead of msi"
             "InstallUrl" = "8:"
             }
         }

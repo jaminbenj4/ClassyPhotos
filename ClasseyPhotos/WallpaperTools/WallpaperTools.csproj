@@ -65,6 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\lolFace.png" />
+    <None Include="Images\bieber01.jpg" />
+    <None Include="Images\bieber02.jpg" />
+    <None Include="Images\hoff01.jpg" />
+    <None Include="Images\hoff02.png" />
+    <None Include="Images\unicorn01.jpg" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
