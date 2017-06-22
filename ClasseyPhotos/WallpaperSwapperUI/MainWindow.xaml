@@ -4,11 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="180" Width="240">
+        Title="MainWindow" Height="250" Width="500">
     <Grid>
-        <Button x:Name="SetWallpaperButton" Content="Set Wallpaper" HorizontalAlignment="Center" Margin="0,35,100,0" VerticalAlignment="Top" Click="SetWallpaperButton_Click" RenderTransformOrigin="-0.316,0.705" Padding="5,1"/>
-        <Button x:Name="RestoreButton" Content="Restore" HorizontalAlignment="Center" Margin="100,35,0,0" VerticalAlignment="Top" Click="RestoreButton_Click" Padding="5,1" Width="75"/>
-        <Button x:Name="RunSwapperButton" Content="Run Swapper" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Padding="5,1" Click="RunSwapperButton_Click"/>
+        <Button x:Name="SetWallpaperButton" Content="Set Wallpaper" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Click="SetWallpaperButton_Click" RenderTransformOrigin="-0.316,0.705" Padding="5,1"/>
+        <Button x:Name="RestoreButton" Content="Restore" Margin="150,30,0,0" VerticalAlignment="Top" Click="RestoreButton_Click" Padding="5,1" HorizontalAlignment="Left" Width="75"/>
+        <Button x:Name="RunSwapperButton" Content="Run Swapper" HorizontalAlignment="Left" Margin="40,70,204.6,0" VerticalAlignment="Top" Padding="5,1" Click="RunSwapperButton_Click"/>
+        <Button x:Name="GetWallpaperButton" Content="Get Wallpaper" HorizontalAlignment="Left" Margin="40,110,205.6,0" VerticalAlignment="Top" Padding="5,1" Click="GetWallpaperButton_Click"/>
+        <TextBox x:Name="WallpaperPathTextbox" Height="23" Margin="40,150,40,0" TextWrapping="Wrap" Text="Wallpaper Path" VerticalAlignment="Top"/>
+        <Button x:Name="IsClassyButton" Content="Is Classy?" HorizontalAlignment="Left" Margin="150,110,0,0" VerticalAlignment="Top" Padding="5,1" Click="ClassyCheckButton_Click"/>
+        <CheckBox x:Name="IsClassyCheckbox" Content="" HorizontalAlignment="Left" Margin="218,115,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="StopSwapperButton" Content="Stop Swapper" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Padding="5,1" Click="StopSwapperButton_Click"/>
 
     </Grid>
 </Window>

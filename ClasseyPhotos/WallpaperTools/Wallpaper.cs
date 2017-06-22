@@ -19,57 +19,46 @@ namespace WallpaperTools
             Center
         }
 
+
+        private const string WindowsThemesPath = @"\Microsoft\Windows\Themes";
+        private const string ClassyFilename = "classyWallpaper.bmp";
+
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly string ClassyPath = $"\\Roaming{WindowsThemesPath}\\{ClassyFilename}";
 
-/*
-        public static bool PaintWall(string wallFilePath, Style style)
-        {
-            Image img = null;
-            try
-            {
-                img = Image.FromFile(Path.GetFullPath(wallFilePath));
-            }
-            catch (Exception e1)
-            {
-                Console.WriteLine(e1);
-            }
 
-            return PaintWall(img, style);
-        }
-*/
+        /*
+                public static bool PaintWall(string wallFilePath, Style style)
+                {
+                    Image img = null;
+                    try
+                    {
+                        img = Image.FromFile(Path.GetFullPath(wallFilePath));
+                    }
+                    catch (Exception e1)
+                    {
+                        Console.WriteLine(e1);
+                    }
+
+                    return PaintWall(img, style);
+                }
+        */
 
         public static void PaintWall(Image image, Style style)
         {
             var primaryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var wallFilePath = Path.Combine(primaryFolder + @"\Microsoft\Windows\Themes", "rollerWallpaper.bmp");
+            var wallFilePath = Path.Combine(primaryFolder + WindowsThemesPath, ClassyFilename);
 
-            Bitmap imgTemp = null;
             try
             {
-                var img = image;
-                imgTemp = new Bitmap(img);
+                var imgTemp = new Bitmap(image);
                 imgTemp.Save(wallFilePath, ImageFormat.Bmp);
                 Logger.Info("Wallpaper saved to primary path: " + wallFilePath);
             }
             catch (Exception e1)
             {
                 Logger.Error(e1);
-                try
-                {
-                    var secondaryFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-                    wallFilePath = Path.Combine(secondaryFolder, "rollerWallpaper.bmp");
-                    if (imgTemp == null)
-                    {
-                        throw new NullReferenceException("image failed to load");
-                    }
-                    imgTemp.Save(wallFilePath, ImageFormat.Bmp);
-                    Logger.Info("Wallpaper saved to secondary path: " + wallFilePath);
-                }
-                catch (Exception e2)
-                {
-                    Logger.Error(e2);
-                    return;
-                }
+                return;
             }
 
             try
@@ -152,12 +141,23 @@ namespace WallpaperTools
             return key;
         }
 
+        /// <summary>
+        ///     check if the current wallpaper is user set or "classy"
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsClassy()
+        {
+            var wallpaper = GetWallKeys();
+            var path = wallpaper.Values[KeyNames.WallpaperPath];
+            return path.EndsWith(ClassyPath);
+        }
+
         public static class KeyNames
         {
             public const string WallpaperParentKey = @"Control Panel\Desktop";
-            public const string WallpaperPath = @"Wallpaper";
-            public const string WallpaperStyle = @"WallpaperStyle";
-            public const string TileWallpaper = @"TileWallpaper";
+            public const string WallpaperPath = "Wallpaper";
+            public const string WallpaperStyle = "WallpaperStyle";
+            public const string TileWallpaper = "TileWallpaper";
         }
     }
 }
