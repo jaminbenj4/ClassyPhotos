@@ -31,7 +31,7 @@ namespace WallpaperTools
         /// <param name="swapMinDuration">minimum time (sec) to display normal wallpaper</param>
         /// <param name="swapMaxDuration">maximum time (sec) to display normal wallpaper</param>
         /// <param name="checkInterval">interval to (sec) to check desktop state</param>
-        public Swapper(int swapMinDuration, int swapMaxDuration, int checkInterval)
+        public Swapper(List<Image> images, int swapMinDuration, int swapMaxDuration, int checkInterval)
         {
             _swapMinDuration = swapMinDuration;
             _swapMaxDuration = swapMaxDuration;
@@ -43,15 +43,8 @@ namespace WallpaperTools
             _swapped = false;
             _rng = new Random();
 
-            //add the images you want from the resx here
-            _images = new List<Image>
-            {
-                Resources.bieber01,
-                Resources.bieber02,
-                Resources.hoff01,
-                Resources.hoff02,
-                Resources.unicorn01
-            };
+            _images = images;
+
             _prevImageIndex = -1;
 
             Logger.Debug("Swapper init");

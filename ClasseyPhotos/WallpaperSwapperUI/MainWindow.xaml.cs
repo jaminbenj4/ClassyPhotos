@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Windows;
 using WallpaperTools;
 
 namespace WallpaperSwapperUI
@@ -8,16 +10,28 @@ namespace WallpaperSwapperUI
     /// </summary>
     public partial class MainWindow
     {
-
-        private const int SwapMinDuration = 5; 
-        private const int SwapMaxDuration = 10; 
-        private const int CheckInterval = 10; 
+        private const int SwapMinDuration = 5;
+        private const int SwapMaxDuration = 10;
+        private const int CheckInterval = 10;
         private readonly Swapper _swapper;
+        private readonly List<Image> _images;
 
         public MainWindow()
         {
             InitializeComponent();
-            _swapper = new Swapper(SwapMinDuration, SwapMaxDuration, CheckInterval);
+
+            //add the images you want from the .resx here
+            _images = new List<Image>
+            {
+                Properties.Resources.bieber01,
+                Properties.Resources.bieber01,
+                Properties.Resources.bieber02,
+                Properties.Resources.hoff01,
+                Properties.Resources.hoff02,
+                Properties.Resources.unicorn01
+            };
+
+            _swapper = new Swapper(_images, SwapMinDuration, SwapMaxDuration, CheckInterval);
             //_swapper.Start();
         }
 
