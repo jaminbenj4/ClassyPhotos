@@ -141,17 +141,6 @@ namespace WallpaperTools
             return key;
         }
 
-        /// <summary>
-        ///     check if the current wallpaper is user set or "classy"
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsClassy()
-        {
-            var wallpaper = GetWallKeys();
-            var path = wallpaper.Values[KeyNames.WallpaperPath];
-            return path.EndsWith(ClassyPath);
-        }
-
         public static class KeyNames
         {
             public const string WallpaperParentKey = @"Control Panel\Desktop";

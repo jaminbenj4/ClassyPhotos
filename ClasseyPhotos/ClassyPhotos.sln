@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallpaperSwapperUI", "WallpaperSwapperUI\WallpaperSwapperUI.csproj", "{BB6D1F30-84BF-4007-A56D-7B488F29FEFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallpaperTools", "WallpaperTools\WallpaperTools.csproj", "{98E03C86-0003-4253-8650-4C665846BEE1}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ClassySetup", "ClassySetup\ClassySetup.vdproj", "{4BD224D2-952C-4D9B-A771-2C5B411681C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallpaperTools.Tests", "ClassyTests\WallpaperTools.Tests.csproj", "{1F7A82AF-AC1B-43D0-A266-DE2BC22FE7D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{98E03C86-0003-4253-8650-4C665846BEE1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4BD224D2-952C-4D9B-A771-2C5B411681C0}.Debug|Any CPU.ActiveCfg = Debug
 		{4BD224D2-952C-4D9B-A771-2C5B411681C0}.Release|Any CPU.ActiveCfg = Release
+		{1F7A82AF-AC1B-43D0-A266-DE2BC22FE7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F7A82AF-AC1B-43D0-A266-DE2BC22FE7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F7A82AF-AC1B-43D0-A266-DE2BC22FE7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F7A82AF-AC1B-43D0-A266-DE2BC22FE7D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

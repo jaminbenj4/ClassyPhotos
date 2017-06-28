@@ -14,24 +14,22 @@ namespace WallpaperSwapperUI
         private const int SwapMaxDuration = 10;
         private const int CheckInterval = 10;
         private readonly Swapper _swapper;
-        private readonly List<Image> _images;
 
         public MainWindow()
         {
             InitializeComponent();
 
             //add the images you want from the .resx here
-            _images = new List<Image>
+            var images = new List<Image>
             {
-                Properties.Resources.bieber01,
-                Properties.Resources.bieber01,
-                Properties.Resources.bieber02,
-                Properties.Resources.hoff01,
-                Properties.Resources.hoff02,
+                //Properties.Resources.bieber01,
+                //Properties.Resources.bieber02,
+                //Properties.Resources.hoff01,
+                //Properties.Resources.hoff02,
                 Properties.Resources.unicorn01
             };
 
-            _swapper = new Swapper(_images, SwapMinDuration, SwapMaxDuration, CheckInterval);
+            _swapper = new Swapper(images, SwapMinDuration, SwapMaxDuration, CheckInterval);
             //_swapper.Start();
         }
 
@@ -61,7 +59,7 @@ namespace WallpaperSwapperUI
 
         private void ClassyCheckButton_Click(object sender, RoutedEventArgs e)
         {
-            var isClassy = Wallpaper.IsClassy();
+            var isClassy = _swapper.GetWallpaperStatus();
             IsClassyCheckbox.IsChecked = isClassy;
         }
 
