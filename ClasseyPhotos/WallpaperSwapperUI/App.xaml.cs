@@ -15,7 +15,8 @@ namespace WallpaperSwapperUI
         {
             base.OnStartup(e);
 
-            MainWindow = new MainWindow();
+            //make the window so the code runs, but don't show it
+            //MainWindow = new MainWindow();
 
             //create the notify icon (it's a resource declared in NotifyIconResources.xaml
             //_notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");

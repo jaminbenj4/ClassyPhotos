@@ -15,12 +15,30 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
+        "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_102FBB38581F6ADB18BB422B404229AA"
         "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_1CAB4747FF7EA77730B049A15EAD91C2"
+        "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1CAB4747FF7EA77730B049A15EAD91C2"
+        "OwnerKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3CDBAC278A382A366F110F995FDFCCDC"
         "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
         "MsmSig" = "8:_UNDEFINED"
@@ -28,31 +46,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3CDBAC278A382A366F110F995FDFCCDC"
-        "OwnerKey" = "8:_C244B126C120FA704712D421F7DF30AD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4543137C93E470CDC7F117F758E75B62"
-        "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
+        "OwnerKey" = "8:_1CAB4747FF7EA77730B049A15EAD91C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_9B0EABD6D3034A3D3D43570439B6DFC4"
         "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C244B126C120FA704712D421F7DF30AD"
-        "OwnerKey" = "8:_C58F2FABF1974BA8B5A409048616DB88"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C244B126C120FA704712D421F7DF30AD"
-        "OwnerKey" = "8:_4543137C93E470CDC7F117F758E75B62"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,13 +70,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4543137C93E470CDC7F117F758E75B62"
+        "OwnerKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C244B126C120FA704712D421F7DF30AD"
+        "OwnerKey" = "8:_1CAB4747FF7EA77730B049A15EAD91C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -122,6 +122,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -184,6 +192,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:WallpaperTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0217D25FA7E8B9CB1DDD8DDD29E25F66"
+                    {
+                    "Name" = "8:WallpaperTools.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:WallpaperTools.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_102FBB38581F6ADB18BB422B404229AA"
             {
             "AssemblyRegister" = "3:1"
@@ -198,6 +237,37 @@
                     }
                 }
             "SourcePath" = "8:Hardcodet.Wpf.TaskbarNotification.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1CAB4747FF7EA77730B049A15EAD91C2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1CAB4747FF7EA77730B049A15EAD91C2"
+                    {
+                    "Name" = "8:NLog.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:NLog.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
@@ -246,37 +316,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4543137C93E470CDC7F117F758E75B62"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WallpaperTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_4543137C93E470CDC7F117F758E75B62"
-                    {
-                    "Name" = "8:WallpaperTools.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:WallpaperTools.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9B0EABD6D3034A3D3D43570439B6DFC4"
             {
             "AssemblyRegister" = "3:1"
@@ -291,37 +330,6 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C244B126C120FA704712D421F7DF30AD"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C244B126C120FA704712D421F7DF30AD"
-                    {
-                    "Name" = "8:NLog.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:NLog.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
@@ -412,9 +420,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:ClassyPhotos"
+        "ProductName" = "8:CDW Tool"
         "ProductCode" = "8:{FD897D05-CF05-4583-A2CF-3C073E58655B}"
-        "PackageCode" = "8:{0D9A9D0F-3FEB-4988-BCEC-DD9996C16804}"
+        "PackageCode" = "8:{9C552BBF-778B-4935-9048-1D2B2DF9EEE7}"
         "UpgradeCode" = "8:{059069E0-8363-44A5-846A-286B006D365D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -422,10 +430,10 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Shenan Ganigans"
+        "Manufacturer" = "8:Initech"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:ClassyPhotos"
+        "Title" = "8:CDW Tool"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Shenan Ganigans"
         "Keywords" = "8:"
@@ -949,7 +957,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C58F2FABF1974BA8B5A409048616DB88"
             {
-            "SourcePath" = "8:..\\WallpaperSwapperUI\\obj\\Release\\WallpaperSwapperUI.exe"
+            "SourcePath" = "8:..\\WallpaperSwapperUI\\obj\\Debug\\WallpaperSwapperUI.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_53BC3019432D46DCB69F0C277ACFB005"
