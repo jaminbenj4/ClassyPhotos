@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Security.Cryptography;
 using System.Timers;
 using Microsoft.Win32;
 using NLog;
@@ -13,46 +10,45 @@ namespace WallpaperTools
     public class Swapper
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly int _checkInterval;
-        private readonly List<string> _hashList;
-        private readonly List<Image> _images;
+        private readonly int checkInterval;
+        private readonly List<string> hashList;
+        private readonly List<Image> images;
 
-        private readonly Random _rng;
-        private readonly Timer _statusCheckTimer;
-        private readonly int _swapMaxDuration;
-        private readonly int _swapMinDuration;
-        private readonly Timer _swapTimer;
-        private RegKey _backupWallKey;
-        private bool _desktopIsClassy;
-        private int _prevImageIndex;
-        private bool _swapped;
+        private readonly Random rng;
+        private readonly Timer statusCheckTimer;
+        private readonly int swapMaxDuration;
+        private readonly int swapMinDuration;
+        private readonly Timer swapTimer;
+        private RegKey backupWallKey;
+        private bool desktopIsClassy;
+        private int prevImageIndex;
+        private bool swapped;
 
         /// <summary>
         ///     Swaps desktop wallpaper at random intervals
         /// </summary>
         /// <param name="images">images to set as wallpaper</param>
+        /// <param name="hashList">hashes for the images</param>
         /// <param name="swapMinDuration">minimum time (sec) to display normal wallpaper</param>
         /// <param name="swapMaxDuration">maximum time (sec) to display normal wallpaper</param>
         /// <param name="checkInterval">interval to (sec) to check desktop state</param>
-        public Swapper(List<Image> images, int swapMinDuration, int swapMaxDuration, int checkInterval)
+        public Swapper(List<Image> images, List<string> hashList, int swapMinDuration, int swapMaxDuration,
+            int checkInterval)
         {
-            _swapMinDuration = swapMinDuration;
-            _swapMaxDuration = swapMaxDuration;
+            this.swapMinDuration = swapMinDuration;
+            this.swapMaxDuration = swapMaxDuration;
 
-            _checkInterval = checkInterval;
-            _swapTimer = new Timer();
-            _statusCheckTimer = new Timer();
-            _desktopIsClassy = false;
-            _swapped = false;
-            _rng = new Random();
+            this.checkInterval = checkInterval;
+            swapTimer = new Timer();
+            statusCheckTimer = new Timer();
+            desktopIsClassy = false;
+            swapped = false;
+            rng = new Random();
 
-            _images = images;
-            using (var hasher = new Hasher())
-            {
-                _hashList = hasher.ComputeHashes(_images);
-            }
+            this.images = images;
+            this.hashList = hashList;
 
-            _prevImageIndex = -1;
+            prevImageIndex = -1;
 
             Logger.Debug("Swapper init");
         }
@@ -61,18 +57,18 @@ namespace WallpaperTools
         {
             Logger.Debug("Swapper.Start() entered");
 
-            _swapTimer.Interval = RandomInterval();
-            _swapTimer.Elapsed += SwapTimerElapsed;
+            swapTimer.Interval = RandomInterval();
+            swapTimer.Elapsed += SwapTimerElapsed;
             Logger.Debug("swapper timer event setup");
 
-            _statusCheckTimer.Interval = _checkInterval;
-            _statusCheckTimer.Elapsed += StatusCheckTimerElapsed;
+            statusCheckTimer.Interval = checkInterval;
+            statusCheckTimer.Elapsed += StatusCheckTimerElapsed;
             Logger.Debug("status check timer event setup");
 
-            _swapTimer.Start();
+            swapTimer.Start();
             Logger.Debug("swapper timer started");
 
-            _statusCheckTimer.Start();
+            statusCheckTimer.Start();
             Logger.Debug("status check timer started");
 
             Logger.Debug("swapper started");
@@ -83,8 +79,8 @@ namespace WallpaperTools
         /// </summary>
         public void Stop()
         {
-            _swapTimer.Stop();
-            _statusCheckTimer.Stop();
+            swapTimer.Stop();
+            statusCheckTimer.Stop();
             Restore();
         }
 
@@ -92,38 +88,38 @@ namespace WallpaperTools
         {
             Logger.Debug("swap timer ellapsed");
 
-            _swapTimer.Stop();
+            swapTimer.Stop();
             Swap();
         }
 
         private void StatusCheckTimerElapsed(object sender, ElapsedEventArgs e)
         {
-            _desktopIsClassy = GetWallpaperStatus();
+            desktopIsClassy = GetWallpaperSwappedStatus();
 
             //if user has changed wallpaper back, restart the swap timer
-            if (_swapped && !_desktopIsClassy)
+            if (swapped && !desktopIsClassy)
             {
-                _swapped = false;
+                swapped = false;
 
-                _swapTimer.Stop();
-                _swapTimer.Interval = RandomInterval();
-                _swapTimer.Start();
+                swapTimer.Stop();
+                swapTimer.Interval = RandomInterval();
+                swapTimer.Start();
             }
         }
 
         public void Swap()
         {
-            var randomIndex = _rng.Next(0, _images.Count);
+            var randomIndex = rng.Next(0, images.Count);
             //don't repeat images
-            while (randomIndex == _prevImageIndex)
+            while (randomIndex == prevImageIndex)
             {
-                randomIndex = _rng.Next(0, _images.Count);
+                randomIndex = rng.Next(0, images.Count);
             }
-            var image = _images[randomIndex];
-            _prevImageIndex = randomIndex;
+            var image = images[randomIndex];
+            prevImageIndex = randomIndex;
             Set(image);
 
-            _swapped = true;
+            swapped = true;
         }
 
         /// <summary>
@@ -141,7 +137,7 @@ namespace WallpaperTools
         /// </summary>
         private void Backup()
         {
-            _backupWallKey = Wallpaper.GetWallKeys();
+            backupWallKey = Wallpaper.GetWallKeys();
             Logger.Info("wallpaper backup successful");
         }
 
@@ -161,12 +157,12 @@ namespace WallpaperTools
 
                     //restore reg keys for style and tiling
                     key.SetValue(Wallpaper.KeyNames.WallpaperStyle,
-                        _backupWallKey.Values[Wallpaper.KeyNames.WallpaperStyle]);
+                        backupWallKey.Values[Wallpaper.KeyNames.WallpaperStyle]);
                     key.SetValue(Wallpaper.KeyNames.TileWallpaper,
-                        _backupWallKey.Values[Wallpaper.KeyNames.TileWallpaper]);
+                        backupWallKey.Values[Wallpaper.KeyNames.TileWallpaper]);
 
                     //restore wallpaper image
-                    SysCall.SetSystemWallpaper(_backupWallKey.Values[Wallpaper.KeyNames.WallpaperPath]);
+                    SysCall.SetSystemWallpaper(backupWallKey.Values[Wallpaper.KeyNames.WallpaperPath]);
                 }
             }
             catch (Exception exception)
@@ -177,34 +173,29 @@ namespace WallpaperTools
             Logger.Info("wallpaper restored");
         }
 
-        public bool GetWallpaperStatus()
+        /// <summary>
+        ///     check if wallpaper has been swapped or not
+        /// </summary>
+        /// <returns></returns>
+        public bool GetWallpaperSwappedStatus()
         {
-            //hash desktop to see if set by user or the swapper
-            var wallpaper = Wallpaper.GetWallKeys();
-            var path = wallpaper.Values[Wallpaper.KeyNames.WallpaperPath];
-            using (var md5 = MD5.Create())
+            using (var hasher = new Hasher())
             {
-                using (var stream = File.OpenRead(path))
+                //hash desktop to see if set by user or the swapper
+                var wallpaper = Wallpaper.GetWallKeys();
+                var path = wallpaper.Values[Wallpaper.KeyNames.WallpaperPath];
+                var hash = hasher.ComputeImageHashFromPath(path);
+                if (hashList.Contains(hash))
                 {
-                    var imgTemp = new Bitmap(Image.FromFile(path));
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        imgTemp.Save(memoryStream, ImageFormat.Bmp);
-                        //TODO: compare bytes from resx and wallpaper file
-                        var bytes = memoryStream.ToArray();
-                        var memHash = BitConverter.ToString(md5.ComputeHash(memoryStream)).Replace("-", "").ToLower();
-                        var breakpoint = 0;
-                    }
-
-                    var hash = BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "").ToLower();
-                    return _hashList.Contains(hash);
+                    return true;
                 }
+                return false;
             }
         }
 
         private int RandomInterval()
         {
-            return _rng.Next(_swapMinDuration * 1000, _swapMaxDuration * 1000);
+            return rng.Next(swapMinDuration * 1000, swapMaxDuration * 1000);
         }
     }
 }

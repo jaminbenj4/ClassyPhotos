@@ -40,9 +40,29 @@ namespace WallpaperTools
             using (var memoryStream = new MemoryStream())
             {
                 image.Save(memoryStream, ImageFormat.Bmp);
-                var hash = BitConverter.ToString(_md5.ComputeHash(memoryStream)).Replace("-", "").ToLower();
+                var hash = Hash(memoryStream);
                 return hash;
             }
+        }
+
+        public string ComputeImageHashFromPath(string path)
+        {
+            using (var stream = File.OpenRead(path))
+            {
+                return Hash(stream);
+            }
+        }
+
+        public string Hash(Stream stream)
+        {
+            var hash = BitConverter.ToString(_md5.ComputeHash(stream)).Replace("-", "").ToLower();
+            return hash;
+        }
+
+        public string Hash(byte[] byteArray)
+        {
+            var hash = BitConverter.ToString(_md5.ComputeHash(byteArray)).Replace("-", "").ToLower();
+            return hash;
         }
     }
 }
