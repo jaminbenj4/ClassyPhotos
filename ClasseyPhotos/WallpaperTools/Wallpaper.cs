@@ -24,7 +24,7 @@ namespace WallpaperTools
         private const string ClassyFilename = "classyWallpaper.bmp";
 
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private static readonly string ClassyPath = $"\\Roaming{WindowsThemesPath}\\{ClassyFilename}";
+        //private static readonly string ClassyPath = $"\\Roaming{WindowsThemesPath}\\{ClassyFilename}";
 
 
         /*

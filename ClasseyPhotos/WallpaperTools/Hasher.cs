@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -9,19 +6,20 @@ namespace WallpaperTools
 {
     public class Hasher : IDisposable
     {
-        private readonly MD5 _md5;
+        private readonly MD5 md5;
 
         public Hasher()
         {
-            _md5 = MD5.Create();
+            md5 = MD5.Create();
         }
 
 
         public void Dispose()
         {
-            _md5?.Dispose();
+            md5?.Dispose();
         }
 
+/*
         public List<string> ComputeHashes(IEnumerable<Image> images)
         {
             var hashList = new List<string>();
@@ -34,7 +32,9 @@ namespace WallpaperTools
 
             return hashList;
         }
+*/
 
+/*
         public string ComputeImageHash(Image image)
         {
             using (var memoryStream = new MemoryStream())
@@ -44,6 +44,7 @@ namespace WallpaperTools
                 return hash;
             }
         }
+*/
 
         public string ComputeImageHashFromPath(string path)
         {
@@ -53,16 +54,18 @@ namespace WallpaperTools
             }
         }
 
-        public string Hash(Stream stream)
+        private string Hash(Stream stream)
         {
-            var hash = BitConverter.ToString(_md5.ComputeHash(stream)).Replace("-", "").ToLower();
+            var hash = BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "").ToLower();
             return hash;
         }
 
+/*
         public string Hash(byte[] byteArray)
         {
-            var hash = BitConverter.ToString(_md5.ComputeHash(byteArray)).Replace("-", "").ToLower();
+            var hash = BitConverter.ToString(md5.ComputeHash(byteArray)).Replace("-", "").ToLower();
             return hash;
         }
+*/
     }
 }

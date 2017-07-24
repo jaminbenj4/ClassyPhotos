@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows;
+using System.Windows.Threading;
 using WallpaperTools;
 
 namespace WallpaperSwapperUI
@@ -11,11 +13,9 @@ namespace WallpaperSwapperUI
     /// </summary>
     public partial class MainWindow
     {
-        private const int SwapMinDuration = 5;
-        private const int SwapMaxDuration = 10;
-        private const int CheckInterval = 10;
-        private readonly Swapper swapper;
+        private const int IdleThreshold = 10; //10 seconds
         private readonly List<Image> images;
+        private readonly Swapper swapper;
 
 
         public MainWindow()
@@ -44,7 +44,15 @@ namespace WallpaperSwapperUI
                 "fefccd7a39cb96649661af8d0a2771fe"
             };
 
-            swapper = new Swapper(images, hashList, SwapMinDuration, SwapMaxDuration, CheckInterval);
+            //for testing idle time
+            var idleCheckTimer = new DispatcherTimer();
+            idleCheckTimer.Tick += IdleCheckTimerElapsed;
+            idleCheckTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / 10);
+            idleCheckTimer.Start();
+
+
+            // build and start swapper
+            swapper = new Swapper(images, hashList, IdleThreshold);
             swapper.Start();
         }
 
@@ -99,6 +107,14 @@ namespace WallpaperSwapperUI
                 }
                 File.WriteAllLines(@"C:\Users\Public\ClassyHashes.txt", hashes);
             }
+        }
+
+        private void IdleCheckTimerElapsed(object sender, EventArgs eventArgs)
+        {
+            // get idle time
+            var idleTime = TimeSpan.FromMilliseconds(IdleTimeFinder.GetIdleTime()).TotalSeconds;
+
+            IdleTimeTextBox.Text = idleTime.ToString();
         }
     }
 }
