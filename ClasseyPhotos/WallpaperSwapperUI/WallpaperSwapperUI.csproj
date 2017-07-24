@@ -106,9 +106,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\daveeeeen face.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WallpaperTools\WallpaperTools.csproj">
       <Project>{98e03c86-0003-4253-8650-4c665846bee1}</Project>
       <Name>WallpaperTools</Name>
@@ -116,6 +113,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\unicorn01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bieber01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bieber02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hoff01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hoff02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\lolFace.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

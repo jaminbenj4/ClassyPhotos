@@ -59,15 +59,5 @@ namespace WallpaperTools.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap lolFace {
-            get {
-                object obj = ResourceManager.GetObject("lolFace", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
