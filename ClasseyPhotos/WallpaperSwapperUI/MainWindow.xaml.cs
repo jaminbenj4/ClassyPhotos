@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Windows;
-using System.Windows.Threading;
 using WallpaperTools;
 
 namespace WallpaperSwapperUI
@@ -13,7 +9,7 @@ namespace WallpaperSwapperUI
     /// </summary>
     public partial class MainWindow
     {
-        private const int IdleThreshold = 10; //10 seconds
+        private const int IdleThreshold = 60*10; // 10 minutes
         private readonly List<Image> images;
         private readonly Swapper swapper;
 
@@ -45,10 +41,10 @@ namespace WallpaperSwapperUI
             };
 
             //for testing idle time
-            var idleCheckTimer = new DispatcherTimer();
-            idleCheckTimer.Tick += IdleCheckTimerElapsed;
-            idleCheckTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / 10);
-            idleCheckTimer.Start();
+            //var idleCheckTimer = new DispatcherTimer();
+            //idleCheckTimer.Tick += IdleCheckTimerElapsed;
+            //idleCheckTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / 10);
+            //idleCheckTimer.Start();
 
 
             // build and start swapper
@@ -56,7 +52,9 @@ namespace WallpaperSwapperUI
             swapper.Start();
         }
 
-
+        //UI for testing only, comment for prod
+        /*
+         
         private void SetWallpaperButton_Click(object sender, RoutedEventArgs e)
         {
             swapper.Swap();
@@ -116,5 +114,7 @@ namespace WallpaperSwapperUI
 
             IdleTimeTextBox.Text = idleTime.ToString();
         }
+
+        */
     }
 }

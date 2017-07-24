@@ -70,19 +70,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1CAB4747FF7EA77730B049A15EAD91C2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_102FBB38581F6ADB18BB422B404229AA"
+        "OwnerKey" = "8:_3CDBAC278A382A366F110F995FDFCCDC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,7 +82,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3CDBAC278A382A366F110F995FDFCCDC"
+        "OwnerKey" = "8:_102FBB38581F6ADB18BB422B404229AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1CAB4747FF7EA77730B049A15EAD91C2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -199,11 +199,6 @@
             "AssemblyAsmDisplayName" = "8:WallpaperTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0217D25FA7E8B9CB1DDD8DDD29E25F66"
-                    {
-                    "Name" = "8:WallpaperTools.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:WallpaperTools.dll"
             "TargetName" = "8:"
@@ -230,11 +225,6 @@
             "AssemblyAsmDisplayName" = "8:Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_102FBB38581F6ADB18BB422B404229AA"
-                    {
-                    "Name" = "8:Hardcodet.Wpf.TaskbarNotification.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Hardcodet.Wpf.TaskbarNotification.dll"
             "TargetName" = "8:"
@@ -261,11 +251,6 @@
             "AssemblyAsmDisplayName" = "8:NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_1CAB4747FF7EA77730B049A15EAD91C2"
-                    {
-                    "Name" = "8:NLog.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:NLog.dll"
             "TargetName" = "8:"
@@ -292,11 +277,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_3CDBAC278A382A366F110F995FDFCCDC"
-                    {
-                    "Name" = "8:System.IO.Compression.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
@@ -323,11 +303,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_9B0EABD6D3034A3D3D43570439B6DFC4"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -421,21 +396,21 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CDW Tool"
-        "ProductCode" = "8:{FD897D05-CF05-4583-A2CF-3C073E58655B}"
-        "PackageCode" = "8:{9C552BBF-778B-4935-9048-1D2B2DF9EEE7}"
+        "ProductCode" = "8:{2CA37BF7-E7D7-4F64-86E4-D90EBE65D2DC}"
+        "PackageCode" = "8:{C73A8430-669F-4725-848C-B7CC31B20370}"
         "UpgradeCode" = "8:{059069E0-8363-44A5-846A-286B006D365D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:Initech"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:CDW Tool"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Shenan Ganigans"
+        "ARPCONTACT" = "8:CDW Inc."
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"

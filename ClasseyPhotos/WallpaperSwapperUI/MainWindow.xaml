@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
-    <Grid>
+    <!--<Grid>
         <Button x:Name="SetWallpaperButton" Content="Set Wallpaper" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Click="SetWallpaperButton_Click" RenderTransformOrigin="-0.316,0.705" Padding="5,1"/>
         <Button x:Name="RestoreButton" Content="Restore" Margin="150,30,0,0" VerticalAlignment="Top" Click="RestoreButton_Click" Padding="5,1" HorizontalAlignment="Left" Width="75"/>
         <Button x:Name="RunSwapperButton" Content="Run Swapper" HorizontalAlignment="Left" Margin="40,70,204.6,0" VerticalAlignment="Top" Padding="5,1" Click="RunSwapperButton_Click"/>
@@ -18,5 +18,5 @@
         <TextBox x:Name="IdleTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="216,214,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="120"/>
         <Label Content="Idle Time:" HorizontalAlignment="Left" Margin="150,211,0,0" VerticalAlignment="Top"/>
 
-    </Grid>
+    </Grid>-->
 </Window>
