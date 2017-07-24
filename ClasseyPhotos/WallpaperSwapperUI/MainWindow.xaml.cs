@@ -10,6 +10,7 @@ namespace WallpaperSwapperUI
     public partial class MainWindow
     {
         private const int IdleThreshold = 60*10; // 10 minutes
+        private const int SwapChance = 50; // 1/x change of swap
         private readonly List<Image> images;
         private readonly Swapper swapper;
 
@@ -48,7 +49,7 @@ namespace WallpaperSwapperUI
 
 
             // build and start swapper
-            swapper = new Swapper(images, hashList, IdleThreshold);
+            swapper = new Swapper(images, hashList, IdleThreshold, SwapChance);
             swapper.Start();
         }
 

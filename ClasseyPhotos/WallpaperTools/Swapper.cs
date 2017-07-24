@@ -9,13 +9,13 @@ namespace WallpaperTools
 {
     public class Swapper
     {
+        private const int CheckInterval = 60000; // check inactive and wallpaper status every minute (60*1000ms)
+        private readonly int swapChance;    // 1/x chance of swap
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private readonly List<string> hashList;
+        private readonly int idleThreshold;
 
         private readonly List<Image> images;
-        private readonly List<string> hashList;
-
-        private const int CheckInterval = 10000;   //10 seconds
-        private readonly int idleThreshold;
         private readonly Random rng;
         private readonly Timer statusCheckTimer;
         private RegKey backupWallKey;
@@ -28,16 +28,18 @@ namespace WallpaperTools
         /// <param name="images">images to set as wallpaper</param>
         /// <param name="hashList">hashes for the images</param>
         /// <param name="idleThreshold">how long to wait (sec) before swap</param>
-        public Swapper(List<Image> images, List<string> hashList, int idleThreshold)
+        /// <param name="swapChance">chance of swap (1/x)</param>
+        public Swapper(List<Image> images, List<string> hashList, int idleThreshold, int swapChance)
         {
-            this.idleThreshold = idleThreshold;
-            statusCheckTimer = new Timer();
-            desktopIsClassy = false;
-            rng = new Random();
-
             this.images = images;
             this.hashList = hashList;
 
+            this.idleThreshold = idleThreshold;
+            this.swapChance = swapChance;
+
+            statusCheckTimer = new Timer();
+            rng = new Random();
+            desktopIsClassy = false;
             prevImageIndex = -1;
 
             Logger.Debug("Swapper init");
@@ -76,7 +78,12 @@ namespace WallpaperTools
             // if idle time > idle threshold
             if (!desktopIsClassy && idleTime > TimeSpan.FromSeconds(idleThreshold))
             {
-                Swap();
+                //  1/x chance to swap
+                var rand = rng.Next(swapChance);
+                if (rand == 1)
+                {
+                    Swap();
+                }
             }
         }
 
