@@ -70,19 +70,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3CDBAC278A382A366F110F995FDFCCDC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9B0EABD6D3034A3D3D43570439B6DFC4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_102FBB38581F6ADB18BB422B404229AA"
+        "OwnerKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,7 +82,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0217D25FA7E8B9CB1DDD8DDD29E25F66"
+        "OwnerKey" = "8:_102FBB38581F6ADB18BB422B404229AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9B0EABD6D3034A3D3D43570439B6DFC4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3CDBAC278A382A366F110F995FDFCCDC"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -396,15 +396,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CDW Tool"
-        "ProductCode" = "8:{2CA37BF7-E7D7-4F64-86E4-D90EBE65D2DC}"
-        "PackageCode" = "8:{C73A8430-669F-4725-848C-B7CC31B20370}"
+        "ProductCode" = "8:{7857DF27-9BFA-47FC-900F-871507DC0C6C}"
+        "PackageCode" = "8:{918D9E4C-2E0D-460E-AC7B-BF4ED09863BE}"
         "UpgradeCode" = "8:{059069E0-8363-44A5-846A-286B006D365D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.1.1"
         "Manufacturer" = "8:Initech"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

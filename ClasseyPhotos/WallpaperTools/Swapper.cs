@@ -20,6 +20,8 @@ namespace WallpaperTools
         private readonly Timer statusCheckTimer;
         private RegKey backupWallKey;
         private bool desktopIsClassy;
+        private bool idleStatus;
+        private bool prevIdleStatus;
         private int prevImageIndex;
 
         /// <summary>
@@ -40,6 +42,8 @@ namespace WallpaperTools
             statusCheckTimer = new Timer();
             rng = new Random();
             desktopIsClassy = false;
+            idleStatus = false;
+            prevIdleStatus = false;
             prevImageIndex = -1;
 
             Logger.Debug("Swapper init");
@@ -73,10 +77,14 @@ namespace WallpaperTools
         {
             desktopIsClassy = GetWallpaperSwappedStatus();
 
-            // get idle time
+            // get idle status
+            prevIdleStatus = idleStatus;
             var idleTime = TimeSpan.FromMilliseconds(IdleTimeFinder.GetIdleTime());
-            // if idle time > idle threshold
-            if (!desktopIsClassy && idleTime > TimeSpan.FromSeconds(idleThreshold))
+            idleStatus = idleTime > TimeSpan.FromSeconds(idleThreshold);
+
+            // only swap on transition to idle, not every minute after
+
+            if (!desktopIsClassy && idleStatus && !prevIdleStatus)
             {
                 //  1/x chance to swap
                 var rand = rng.Next(swapChance);
