@@ -9,9 +9,11 @@ namespace WallpaperTools
 {
     public class Swapper
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger UserIdleLogger = LogManager.GetLogger("UserIdleLogger");
+
         private const int CheckInterval = 60000; // check inactive and wallpaper status every minute (60*1000ms)
         private readonly int swapChance;    // 1/x chance of swap
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly List<string> hashList;
         private readonly int idleThreshold;
 
@@ -46,12 +48,12 @@ namespace WallpaperTools
             prevIdleStatus = false;
             prevImageIndex = -1;
 
-            Logger.Debug("Swapper init");
+            Logger.Trace("Swapper init");
         }
 
         public void Start()
         {
-            Logger.Debug("Swapper.Start() entered");
+            Logger.Trace("Swapper.Start() entered");
 
             statusCheckTimer.Interval = CheckInterval;
             statusCheckTimer.Elapsed += StatusCheckTimerElapsed;
@@ -60,7 +62,7 @@ namespace WallpaperTools
             statusCheckTimer.Start();
             Logger.Debug("status check timer started");
 
-            Logger.Debug("swapper started");
+            Logger.Trace("swapper started");
         }
 
         /// <summary>
@@ -83,9 +85,9 @@ namespace WallpaperTools
             idleStatus = idleTime > TimeSpan.FromSeconds(idleThreshold);
 
             // only swap on transition to idle, not every minute after
-
             if (!desktopIsClassy && idleStatus && !prevIdleStatus)
             {
+                UserIdleLogger.Info("User Idle detected");
                 //  1/x chance to swap
                 var rand = rng.Next(swapChance);
                 if (rand == 1)
