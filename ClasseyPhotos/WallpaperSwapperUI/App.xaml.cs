@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Hardcodet.Wpf.TaskbarNotification;
 
 namespace WallpaperSwapperUI
 {
@@ -17,9 +16,6 @@ namespace WallpaperSwapperUI
 
             //make the window so the code runs, but don't show it
             MainWindow = new MainWindow();
-
-            //create the notify icon (it's a resource declared in NotifyIconResources.xaml
-            //_notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
         }
 
         protected override void OnExit(ExitEventArgs e)
